@@ -1,0 +1,47 @@
+"""
+A directive used by the Apollo iOS client to annotate operations or fragments that should be used exclusively for generating local cache mutations instead of as standard operations.
+"""
+directive @apollo_client_ios_localCacheMutation on QUERY | MUTATION | SUBSCRIPTION | FRAGMENT_DEFINITION
+
+"""
+A directive used by the Apollo iOS code generation engine to generate custom import statements in operation or fragment definition files. An import statement to import a module with the name provided in the `module` argument will be added to the generated definition file.
+"""
+directive @import(
+  """The name of the module to import."""
+  module: String!
+) repeatable on QUERY | MUTATION | SUBSCRIPTION | FRAGMENT_DEFINITION
+
+"""
+Directs the executor to defer this fragment when the `if` argument is true or undefined.
+"""
+directive @defer(
+  """Deferred when true or undefined."""
+  if: Boolean
+
+  """Unique name"""
+  label: String
+) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+type Query {
+  birds: [Bird!]!
+  bird(id: ID!): Bird
+}
+
+type Mutation {
+  addNote(birdId: ID!, comment: String!, timestamp: Int!): ID
+}
+
+type Bird {
+  id: ID!
+  thumb_url: String!
+  image_url: String!
+  latin_name: String!
+  english_name: String!
+  notes: [Note!]!
+}
+
+type Note {
+  id: ID!
+  comment: String!
+  timestamp: Int!
+}

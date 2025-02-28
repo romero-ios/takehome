@@ -1,0 +1,10 @@
+fragment BirdFragment on Bird {
+  id
+  thumb_url
+  image_url
+  latin_name
+  english_name
+  notes {
+    ...NoteFragment
+  }
+}

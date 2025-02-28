@@ -1,0 +1,50 @@
+{
+  "schemaNamespace" : "API",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./Sources/APIClient/Apollo/Schema",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "APIClient",
+          "accessModifier": "public"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  },
+  "schemaDownloadConfiguration": {
+    "downloadMethod": {
+      "introspection": {
+        "endpointURL": "https://takehome.graphql.copilot.money",
+        "httpMethod": {
+          "POST": {}
+        },
+        "includeDeprecatedInputValues": true,
+        "outputFormat": "SDL"
+      }
+    },
+    "downloadTimeout": 60,
+    "headers": [
+      {
+        "key": "Authorization",
+        "value": "Bearer BzEKwCKqZYEvye7Wh8rV"
+      }
+    ],
+    "outputPath": "./Sources/APIClient/Apollo/Schema/API.graphqls"
+  }
+}

@@ -1,0 +1,5 @@
+fragment NoteFragment on Note {
+  id
+  comment
+  timestamp
+}
